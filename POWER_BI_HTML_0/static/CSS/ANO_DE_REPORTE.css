@@ -1,0 +1,81 @@
+/* Estilos para el cuerpo de la página */
+body {
+    margin: 0; /* Elimina el margen exterior del cuerpo */
+    padding: 0; /* Elimina el relleno interior del cuerpo */
+    display: flex; /* Usa el modelo de caja flexible para el diseño */
+    justify-content: flex-start; /* Alinea los elementos en el inicio del eje principal (horizontal) */
+    align-items: flex-start; /* Alinea los elementos en el inicio del eje transversal (vertical) */
+    height: 100vh; /* Ajusta la altura al 100% de la ventana gráfica */
+    font-family: 'Calibri', sans-serif;
+
+  /* Cambia el color de fondo a la imagen */
+  background-image: url('5135204.jpg');
+  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+  background-position: center; /* Centra la imagen en el fondo */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+/* Estilos para el contenedor principal de encabezados y botones */
+#buttonsContainer_h2 {
+    display: flex; /* Usa el modelo de caja flexible para el diseño */
+    flex-direction: column; /* Alinea los elementos en una columna en lugar de una fila */
+    background-color:#ffffff; /* Color de fondo azul claro más oscuro */
+    padding: 10px; /* Añade relleno alrededor del contenedor */
+    margin: 0px; /* Añade márgenes alrededor del contenedor */
+    height: 100%; /* Ajusta la altura al 100% del contenedor padre */
+    max-width: 200px; /* Ancho máximo del contenedor */
+}
+/* Estilos para los encabezados h2 dentro del contenedor */
+h2 {
+    color:black; /* Color del texto para los encabezados h2 */
+    margin: 0; /* Elimina los márgenes predeterminados para los encabezados h2 */
+    text-align: center; /* Centra el texto dentro del elemento h2 */
+    font-family: 'Calibri', sans-serif;
+    font-weight: bold; /* Agrega negrita al texto de los botones */
+    font-size: 18px; /* Tamaño de la fuente para los elementos h2 */
+}
+
+/* Estilos para los botones dentro del contenedor */
+button {
+    background-color:blue; /* Color de fondo para los botones */
+    color: #ffffff; /* Color del texto blanco para los botones */
+    padding: 8px 15px; /* Añade relleno a los botones */
+    border: none; /* Elimina el borde de los botones */
+    border-radius: 4px; /* Agrega bordes redondeados a los botones */
+    cursor: pointer; /* Establece el cursor como puntero al pasar sobre los botones */
+    font-size: 14px; /* Tamaño de fuente para los botones */
+    margin: 5px 0; /* Añade margen en la parte superior e inferior de los botones */
+    text-decoration: none; /* Elimina la decoración de texto predeterminada para los botones */
+    transition: background-color 0.3s ease; /* Agrega una transición suave al color de fondo de los botones */
+    width: 100%; /* Establece el ancho al 100% del contenedor padre */
+    font-weight: bold; /* Agrega negrita al texto de los botones */
+}
+/* Estilos para los botones al pasar el ratón sobre ellos */
+button:hover {
+    background-color:darkblue; /* Cambia el color de fondo a un tono más oscuro al pasar sobre los botones */
+    color:#ffffff; /* Mantiene el color del texto blanco al pasar sobre los botones */
+    font-weight: bold; /* Agrega negrita al texto de los botones */
+}
+
+/* Estilo para el contenedor de información adicional */
+#additional_info {
+    position: absolute;/* Establece la posición del elemento como absoluta, en relación con el primer ancestro posicionado */
+    bottom: 10px;/* Establece la distancia del borde inferior del elemento al borde inferior del contenedor a 10 píxeles */
+    right: 10px; /* Establece la distancia del borde derecho del elemento al borde derecho del contenedor a 10 píxeles */
+    text-align: right;/* Alinea el texto dentro del elemento hacia la derecha */
+    color:#ffffff;/* Establece el color del texto en blanco (#ffffff) */
+    font-weight: bold /* Negrita al texto*/
+}
+
+/* Estilo para los párrafos dentro del contenedor de información adicional */
+#additional_info p {
+    margin: 5px 0;/* Establece un margen de 5 píxeles en la parte superior e inferior, y 0 en los lados izquierdo y derecho */
+    font-size: 14px;/* Establece el tamaño de la fuente en 14 píxeles */
+}
+
+#buttonsContainer img {
+    width: 50px; /* Ancho de la imagen */
+    height: 50px; /* Alto de la imagen */
+    cursor: pointer; /* Cambia el cursor a una mano al pasar sobre la imagen */
+    display: block; /* Hace que la imagen sea un bloque para poder aplicar márgenes automáticos */
+    margin: 20px auto 0; /* Aplica márgenes automáticos arriba y abajo, y centrado horizontalmente */
+}

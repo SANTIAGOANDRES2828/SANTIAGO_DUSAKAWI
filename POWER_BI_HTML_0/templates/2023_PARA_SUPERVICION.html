@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Power BI</title>
+    <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/informe_2023.CSS') }}">
+   
+    <script>
+        function cambiarInforme(informe) {
+            var iframe = document.getElementById("powerBiFrame");
+            
+            // Mapa de informes y sus URLs correspondientes
+            var informes = {
+                'RESUMEN_SUPERVICION': 'https://app.powerbi.com/view?r=eyJrIjoiMDhkYzAxYjQtNWEzOC00ODc3LTg0NzgtNDgwMGMwZjFhYjk4IiwidCI6IjE4Nzk5NjEzLTYzNzgtNDNiMC1iNWYzLTU3YzBmZTVmOTIzZCJ9',
+
+                '%_DE_CUMPLIMIENTO': 'https://app.powerbi.com/view?r=eyJrIjoiYjBmY2Y5MTgtY2I3NS00Y2FmLTljMWYtZGNhOTI4MjQ5ZjYyIiwidCI6IjE4Nzk5NjEzLTYzNzgtNDNiMC1iNWYzLTU3YzBmZTVmOTIzZCJ9',
+
+                'POR_TERCEROS': 'https://app.powerbi.com/view?r=eyJrIjoiYzU4ZDhmZTMtMWY5OC00ZDIwLWE2MDAtYjVjZWQwNmU0YjQ5IiwidCI6IjE4Nzk5NjEzLTYzNzgtNDNiMC1iNWYzLTU3YzBmZTVmOTIzZCJ9',
+                // Agrega otros informes según sea necesario
+            };
+
+            // Cambiar la fuente del iframe con la URL del informe seleccionado
+            iframe.src = informes[informe];
+
+            // Restablecer el color de fondo de todos los botones
+            document.getElementById('btnRESUMEN_SUPERVICION').style.backgroundColor = ''; /* Color azul suave */
+            document.getElementById('btn%_DE_CUMPLIMIENTO').style.backgroundColor = ''; /* Color azul suave */
+            document.getElementById('btnPOR_TERCEROS').style.backgroundColor = ''; /* Color azul suave */
+
+            // Cambiar el color del botón actual
+            document.getElementById('btn' + informe).style.backgroundColor = 'darkblue'; /* Cambio de color al azul suave */
+        }
+
+        // Cargar el informe de Resumen al cargar la página
+        window.onload = function() {
+            cambiarInforme('RESUMEN_SUPERVICION');
+        };
+    </script>
+</head>
+<body>
+
+    <div id="buttonsContainer">
+        <!-- Imagen para regresar -->
+        <a href="{{ url_for('report_page_SUPERVISION') }}"><img src="{{ url_for('static', filename='img/casa-inteligente.gif') }}" alt="REGRESAR"></a>
+        
+        <!-- Botones con función onclick para cambiar el informe en el iframe -->
+        <button id="btnRESUMEN_SUPERVICION" onclick="cambiarInforme('RESUMEN_SUPERVICION')">RESUMEN</button>
+        <button id="btn%_DE_CUMPLIMIENTO" onclick="cambiarInforme('%_DE_CUMPLIMIENTO')">% DE CUMPLIMIENTO</button>
+        <button id="btnPOR_TERCEROS" onclick="cambiarInforme('POR_TERCEROS')">TERCEROS</button>
+
+        <div id="nombre_Informe">
+            <p>SUPERVICION DE CONTRATOS</p>
+        </div>
+
+    </div>
+
+    <!-- Contenedor del informe de Power BI -->
+    <div id="powerBiContainer">
+        <!-- IFRAME para mostrar los informes de Power BI -->
+        <iframe id="powerBiFrame" title="Report Section" src="" frameborder="0" allowFullScreen="true"></iframe>
+    </div>
+
+</body>
+</html>
+

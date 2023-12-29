@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte</title> <!--Nombre del HTML-->
+
+    <!-- Enlace al archivo CSS externo -->
+    <!--<link rel="stylesheet" type="text/css" href="/POWER_BI_HTML/CSS/ANO_DE_REPORTE.CSS">-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/ANO_DE_REPORTE.CSS') }}">
+
+</head>
+<body>
+
+<div id="buttonsContainer_h2">
+    <!-- Encabezado" -->
+        <h2>VALORES CUPS</h2>
+        <!-- Botones "2023" y "2024" -->
+        <a href="{{ url_for('informe_SOLO_VALORES') }}"><button>VALORES</button></a>
+        <div id="buttonsContainer">
+            <!-- Imagen para regresar -->
+            <a href="{{ url_for('login_page') }}"><img src="{{ url_for('static', filename='img/boton-de-encendido.gif') }}" alt="Regresar"></a>        
+        </div>
+
+</div>
+
+<div id="additional_info">
+    <p>Ingeniero: Fabian Andres Santiago Rios</p>
+    <p>Correo: Santiagoandres055@GMAIL.COM</p>
+    <p>Tel: 3177844726</p>
+</div>
+
+    <!-- Script para mostrar un mensaje al hacer clic en los botones -->
+    <script>
+        function mostrarReporte(anio) {
+            alert('Sin Información del año ' + anio);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Power BI</title>
+    <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/informe_2023.CSS') }}">
+   
+    <script>
+        function cambiarInforme(informe) {
+            var iframe = document.getElementById("powerBiFrame");
+            
+            // Mapa de informes y sus URLs correspondientes
+            var informes = {
+                'VALORES_2023': 'https://app.powerbi.com/view?r=eyJrIjoiODk1MWIyMzEtY2RmZC00YjkyLWI3NjItMGQ3NTMzYzE4Y2MwIiwidCI6IjE4Nzk5NjEzLTYzNzgtNDNiMC1iNWYzLTU3YzBmZTVmOTIzZCJ9',
+
+                '2022_2021_2020': 'https://app.powerbi.com/view?r=eyJrIjoiZTI0MWQzZTItNWJiNC00ZDYzLTk3MDEtNjQzZTFlMjlkZjczIiwidCI6IjE4Nzk5NjEzLTYzNzgtNDNiMC1iNWYzLTU3YzBmZTVmOTIzZCJ9',
+
+                // Agrega otros informes según sea necesario
+            };
+
+            // Cambiar la fuente del iframe con la URL del informe seleccionado
+            iframe.src = informes[informe];
+
+            // Restablecer el color de fondo de todos los botones
+            document.getElementById('btnVALORES_2023').style.backgroundColor = ''; /* Color azul suave */
+            document.getElementById('btn2022_2021_2020').style.backgroundColor = ''; /* Color azul suave */
+
+
+            // Cambiar el color del botón actual
+            document.getElementById('btn' + informe).style.backgroundColor = 'darkblue'; /* Cambio de color al azul suave */
+        }
+
+        // Cargar el informe de Resumen al cargar la página
+        window.onload = function() {
+            cambiarInforme('VALORES_2023');
+        };
+    </script>
+</head>
+<body>
+
+    <div id="buttonsContainer">
+        <!-- Imagen para regresar -->
+        <a href="{{ url_for('report_page') }}"><img src="{{ url_for('static', filename='img/casa-inteligente.gif') }}" alt="REGRESAR"></a>
+        
+        <!-- Botones con función onclick para cambiar el informe en el iframe -->
+        <button id="btnVALORES_2023" onclick="cambiarInforme('VALORES_2023')">VALORES 2023</button>
+        <button id="btn2022_2021_2020" onclick="cambiarInforme('2022_2021_2020')">2022-2021-2020</button>
+
+        <div id="nombre_Informe">
+            <p>VALORES CONTRATADOS</p>
+        </div>
+
+    </div>
+
+    <!-- Contenedor del informe de Power BI -->
+    <div id="powerBiContainer">
+        <!-- IFRAME para mostrar los informes de Power BI -->
+        <iframe id="powerBiFrame" title="Report Section" src="" frameborder="0" allowFullScreen="true"></iframe>
+    </div>
+
+</body>
+</html>
+

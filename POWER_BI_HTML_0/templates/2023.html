@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Power BI</title>
+    <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/informe_2023.CSS') }}">
+   
+    <script>
+        function cambiarInforme(informe) {
+            var iframe = document.getElementById("powerBiFrame");
+            
+            // Mapa de informes y sus URLs correspondientes
+            var informes = {
+                'Resumen': 'https://app.powerbi.com/view?r=eyJrIjoiMTU4Yzg4NTAtZmJjNi00YTY5LWIxOTgtODQyMTA4ZDk2MjhkIiwidCI6IjE4Nzk5NjEzLTYzNzgtNDNiMC1iNWYzLTU3YzBmZTVmOTIzZCJ9',
+
+                'Ubicacion': 'https://app.powerbi.com/view?r=eyJrIjoiMmJmMWUwOWUtNmU2MC00YTUyLWE5NTgtNGI1ODI0Zjk4YTYwIiwidCI6IjE4Nzk5NjEzLTYzNzgtNDNiMC1iNWYzLTU3YzBmZTVmOTIzZCJ9',
+                
+                'Contratos': 'https://app.powerbi.com/view?r=eyJrIjoiNWUxMTZiZGMtODhiNy00ODk3LTkyNGYtZmU2NDE1MTVmMDNkIiwidCI6IjE4Nzk5NjEzLTYzNzgtNDNiMC1iNWYzLTU3YzBmZTVmOTIzZCJ9',
+                // Agrega otros informes según sea necesario
+            };
+
+            // Cambiar la fuente del iframe con la URL del informe seleccionado
+            iframe.src = informes[informe];
+
+            // Restablecer el color de fondo de todos los botones
+            document.getElementById('btnResumen').style.backgroundColor = ''; /* Color azul suave */
+            document.getElementById('btnUbicacion').style.backgroundColor = ''; /* Color azul suave */
+            document.getElementById('btnContratos').style.backgroundColor = ''; /* Color azul suave */
+
+            // Cambiar el color del botón actual
+            document.getElementById('btn' + informe).style.backgroundColor = 'darkblue'; /* Cambio de color al azul suave */
+        }
+
+        // Cargar el informe de Resumen al cargar la página
+        window.onload = function() {
+            cambiarInforme('Resumen');
+        };
+    </script>
+</head>
+<body>
+
+    <div id="buttonsContainer">
+        <!-- Imagen para regresar -->
+        <a href="{{ url_for('report_page') }}"><img src="{{ url_for('static', filename='img/casa-inteligente.gif') }}" alt="Regresar"></a>
+        
+        <!-- Botones con función onclick para cambiar el informe en el iframe -->
+        <button id="btnResumen" onclick="cambiarInforme('Resumen')">Resumen</button>
+        <button id="btnUbicacion" onclick="cambiarInforme('Ubicacion')">Ubicacion</button>
+        <button id="btnContratos" onclick="cambiarInforme('Contratos')">Contratos</button>
+
+        <div id="nombre_Informe">
+            <p>CONTRATACION</p>
+        </div>
+        
+    </div>
+
+    <!-- Contenedor del informe de Power BI -->
+    <div id="powerBiContainer">
+        <!-- IFRAME para mostrar los informes de Power BI -->
+        <iframe id="powerBiFrame" title="Report Section" src="" frameborder="0" allowFullScreen="true"></iframe>
+    </div>
+
+</body>
+</html>
+

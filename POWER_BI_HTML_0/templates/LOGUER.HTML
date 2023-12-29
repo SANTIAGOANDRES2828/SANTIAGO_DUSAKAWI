@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/LOGUER.CSS') }}">
+</head>
+<body>
+
+    <!-- Contenedor principal del formulario -->
+    <div id="login_container">
+        <!-- Formulario de inicio de sesión -->
+        <form action="{{ url_for('login') }}" method="post">
+            <!-- Etiqueta y campo para el nombre de usuario -->
+            <label for="username">Nombre de usuario:</label>
+            <input type="text" id="username" name="username" placeholder="Ingrese su usuario" required>
+
+            <!-- Etiqueta y campo para la contraseña -->
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
+
+            <!-- Contenedor para el checkbox y el texto -->
+            <div id="show_password_container">
+                <!-- Checkbox para mostrar/ocultar la contraseña -->
+                <input type="checkbox" id="show_password" onclick="mostrarContrasena()">
+                <!-- Etiqueta para el texto al lado del checkbox -->
+                <label for="show_password" id="show_password_label">Ver contraseña</label>
+            </div>
+
+            <!-- Botón para enviar el formulario -->
+            <button type="submit">Iniciar sesión</button>
+        </form>
+
+        <div id="additional_info">
+            <p>Ingeniero: Fabian Andres Santiago Rios</p>
+            <p>Correo: Santiagoandres055@GMAIL.COM</p>
+            <p>Tel: 3177844726</p>
+        </div>
+
+        <!-- Script para mostrar/ocultar la contraseña -->
+        <script>
+            function mostrarContrasena() {
+                var x = document.getElementById("password");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+        </script>
+    </div>
+
+</body>
+</html>

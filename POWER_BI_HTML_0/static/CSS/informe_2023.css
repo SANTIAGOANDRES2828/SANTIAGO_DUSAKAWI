@@ -1,0 +1,67 @@
+/* Estilos generales para el cuerpo del documento */
+body {
+    /* Cambia el color de fondo a la imagen */
+    background-image: url('5135204.jpg');
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+    background-position: center; /* Centra la imagen en el fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+#buttonsContainer {
+    display: flex;
+    background-color:#ffffff; /* Color de fondo azul claro más oscuro */
+    padding: 5px; /* Reduzco el relleno para disminuir la altura */
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: auto; /* Establezco la altura a auto para que se ajuste al contenido */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Agrego una sombra sutil al contenedor para dar un aspecto moderno */
+    border: 1px solid transparent; /* Agrego un borde transparente al contenedor */
+    margin-bottom: 0px; /* Añado margen en la parte inferior del contenedor para alejar "nombre_Informe" */
+}
+#nombre_Informe {
+    color:blue; /* Color del texto para los encabezados h2 */
+    margin-left: auto; /* Ajusta el margen izquierdo para que se alinee a la derecha del contenedor */
+    font-weight: bold; /* Aplica negrita al texto */
+    font-family: 'Calibri', sans-serif;
+}
+/* Ajustes en el estilo de los botones para un aspecto más moderno y pequeño */
+button {
+    background-color:blue; /* Color de fondo para los botones */
+    color: #ffffff; /* Color del texto blanco para los botones */
+    padding: 8px 15px; /* Reduzco el espacio interno de los botones */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px; /* Reduzco el tamaño de la fuente */
+    margin: 2px; /* Añado margen entre los botones */
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+/* Estilos para los botones al pasar el ratón sobre ellos (hover) */
+button:hover {
+    background-color:darkblue; /* Cambia el color de fondo a un tono más oscuro al pasar sobre los botones */
+    color:black; /* Mantiene el color del texto blanco al pasar sobre los botones */
+    font-weight: bold; /* Agrega negrita al texto de los botones */
+}
+
+/* Estilo para la imagen de regresar */
+#buttonsContainer img {
+    width: 40px; /* Ancho de la imagen */
+    height: 40px; /* Alto de la imagen */
+    cursor: pointer; /* Cambia el cursor a una mano al pasar sobre la imagen */
+    margin-right: 20px; /* Añado margen a la derecha de la imagen para separarla de los botones */
+}
+/* Estilo para el contenedor de Power BI */
+#powerBiContainer {
+    flex: 1; /* Hace que el contenedor de Power BI ocupe el resto del espacio disponible */
+    height: 93vh; /* Hace que el contenedor de Power BI ocupe el 100% del alto de la ventana */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera para resaltar el contenedor */
+    overflow: hidden; /* Para asegurar que no haya desbordamiento y se muestre correctamente el iframe */
+}
+/* Estilo para el iframe */
+iframe {
+    width: 100%; /* Hace que el iframe ocupe el 100% del ancho del contenedor de Power BI */
+    height: 100%; /* Hace que el iframe ocupe el 100% del alto del contenedor de Power BI */
+    border: none; /* Elimina el borde del iframe */
+}
